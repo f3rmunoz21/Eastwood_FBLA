@@ -1,0 +1,146 @@
+<body>
+
+    <div *ngIf="this.questionsService.dropDownTestsTF" class="dropdown">
+        <div class="instructions">
+            <p>Choose a test from the selection below:</p>
+        </div>
+        <button class="dropbtn" (click)="getTests('Journalism')">Journalism</button>
+        <button class="dropbtn" (click)="getTests('CyberSec')">Cyber Security</button>
+        <button class="dropbtn" (click)="getTests('Economics')">Economics</button>
+        <button class="dropbtn" (click)="getTests('OrgLeadership')">Organizational Leadership</button>      
+    </div>
+
+    <div *ngIf="(!this.questionsService.mixAndMatchTF) && !this.questionsService.dropDownTestsTF">
+
+        <div *ngIf="this.questionsService.currentQuestion">
+
+            <div *ngIf="this.questionsService.multipleTF">
+                <div class="instructions">
+                    <p>Select the correct answer to the following question:</p>
+                </div>
+                <div class="questions">
+                    <p>{{this.questionsService.currentQuestion.question}}</p>
+                </div>
+                <div *ngFor="let answer of this.questionsService.currentQuestion.answers ">
+                    <button class="answer" (click)="this.questionsService.GetResult(answer)">{{answer}}</button>
+                </div>
+            </div>
+
+            <div *ngIf="this.questionsService.fillInTheBlankTF">
+                <div class="instructions">
+                    <p>answer the question using the textbox below</p>
+                </div>
+                <div class="questions">
+                    <p>{{this.questionsService.currentQuestion.question}}</p>
+                </div>
+                <input class="inputbox" [(ngModel)]="this.typedAnswer" />
+                <button class="standard" (click)="submit()">Submit Answer</button>
+            </div>
+
+            <div *ngIf="this.questionsService.dropDownTF">
+                <div class="dropdown">
+                    <div class="instructions">
+                        <p>Answer the question in the drop down below.</p>
+                    </div>
+                    <div class="questions">
+                        <p>{{this.questionsService.currentQuestion.question}}</p>
+                    </div>
+                    <button class="dropbtn">Choose answer here</button>
+                    <div class="dropdown-content">
+                        <div *ngFor="let answer of this.questionsService.currentQuestion.answers ">
+                            <button class="dropbtn"
+                                (click)="this.questionsService.GetResult(answer)">{{answer}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="this.questionsService.currentQuestion.isAnsweredTF">
+                <button class="standard" (click)="this.questionsService.NextQuestion()">Next</button>
+            </div>
+
+        </div>
+
+        <div *ngIf="this.questionsService.currentQuestions">
+            <div *ngIf="this.questionsService.currentQuestions.length==11">
+                <div class="results">
+                    <p>Total Right Answers: {{this.questionsService.rightAnswers}}</p>
+                    <p>Total Wrong Answers: {{this.questionsService.wrongAnswers}}</p>
+                    <p>Total points: {{this.questionsService.points}}</p>
+                </div>
+                <button class="standard" value="Print this page" onClick="window.print()">Print Results</button>
+                <br>
+                <button class="standard" (click)="Restart()">Restart?</button>
+                <div *ngFor="let q of this.questionsService.answeredQuestions">
+                    <div *ngIf="q.isCorrectTF == true">
+                        <div>
+                            <p style="float: left;"><img
+                                    src="https://www.freeiconspng.com/uploads/checkmark-png-picture-8.png" height="30px"
+                                    width="30px"></p>
+                            <div class="resultquestion">
+                                <p>{{q.question}}</p>
+                                <p>Correct Answer: {{q.correctAnswer}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div *ngIf="q.isCorrectTF == false">
+                        <div>
+                            <p style="float: left;"><img src="http://www.pngmart.com/files/3/Red-Cross-PNG-Photo.png"
+                                    height="35px" width="30px"></p>
+                            <div class="resultquestion">
+                                <p>{{q.question}}</p>
+                                <p>Correct Answer: {{q.correctAnswer}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div *ngFor="let q of this.questionsService.currentMixAndMatch.questions">
+                    <div *ngIf="q.isCorrectTF == true" class="green">
+                        <div>
+                            <p style="float: left;"><img
+                                    src="https://www.freeiconspng.com/uploads/checkmark-png-picture-8.png" height="30px"
+                                    width="30px"></p>
+                            <div class="resultquestion">
+                                <p>{{q.question}}</p>
+                                <p>Correct Answer: {{q.correctAnswer}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div *ngIf="q.isCorrectTF == false" class="red">
+                        <div>
+                            <p style="float: left;"><img src="http://www.pngmart.com/files/3/Red-Cross-PNG-Photo.png"
+                                    height="35px" width="30px"></p>
+                            <div class="resultquestion">
+                                <p>{{q.question}}</p>
+                                <p>Correct Answer: {{q.correctAnswer}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <br>
+
+    </div>
+
+    <div *ngIf="this.questionsService.mixAndMatch" class="grid-container">
+        <div *ngFor="let q of this.questionsService.currentMixAndMatch.questions; let i = index">
+            <div *ngIf="!q.isAnsweredTF">
+                <button class="mixandmatch" (click)="setCurrentQuestion(q, i)">{{q.question}}</button>
+            </div>
+        </div>
+
+        <div *ngFor="let a of this.questionsService.currentMixAndMatchAnswers; let i = index">
+            <div>
+                <button class="mixandmatch" (click)="setCurrentAnswer(a, i)">{{a}}</button>
+            </div>
+        </div>
+    </div>
+
+</body>

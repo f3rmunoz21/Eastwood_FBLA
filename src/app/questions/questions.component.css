@@ -1,0 +1,241 @@
+body {
+    padding-top: 30px;
+    padding-right: 80px;
+    padding-bottom: 0px;
+    padding-left: 80px;
+    background-color: hsl(210, 29%, 24%);
+    height: 300vh;
+}
+
+.answer {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid rgb(60, 255, 0);
+    border-radius: 0.6em;
+    color: rgb(60, 255, 0);
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.answer:focus { 
+    color: black;
+    box-shadow: 0 0 40px 40px rgb(60, 255, 0) inset;
+}
+
+.answer:hover {
+    color: black;
+    box-shadow: 0 0 40px 40px rgb(60, 255, 0) inset;
+}
+
+.mixandmatch {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid yellow;
+    border-radius: 0.6em;
+    color: yellow;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.mixandmatch:focus { 
+    color: black;
+    box-shadow: 0 0 40px 40px yellow inset;
+}
+
+.mixandmatch:hover {
+    color: black;
+    box-shadow: 0 0 40px 40px yellow inset;
+}
+  
+.print {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.standard { 
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid rgb(0, 225, 255);
+    border-radius: 0.6em;
+    color:  rgb(0, 225, 255);
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.standard:hover {
+    color: black;
+    box-shadow: 0 0 40px 40px  rgb(0, 225, 255) inset;
+}
+
+.standard:focus { 
+    color: black;
+    box-shadow: 0 0 40px 40px  rgb(0, 225, 255) inset;
+}
+
+.submit { 
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid rgb(0, 225, 255);
+    border-radius: 0.6em;
+    color:  rgb(0, 225, 255);
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.inputbox { 
+    margin-left: 20px;
+}
+
+.questions { 
+    font-family: 'Montserrat', sans-serif;
+    font-size: x-large;
+    color: white;
+}
+
+.instructions { 
+    font-family: 'Montserrat', sans-serif;
+    font-size: medium;
+    color: white;
+}
+
+.results { 
+    font-family: 'Montserrat', sans-serif;
+    font-size: x-large;
+    color: white;
+}
+
+.checkmark {
+    flex-basis: 40%
+}
+  
+.resultquestion {
+    font-family: 'Montserrat', sans-serif;
+    color:white;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+.dropbtn {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid orange;
+    border-radius: 0.6em;
+    color:  orange;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  }
+
+  .dropbtn:focus { 
+    color: black;
+    box-shadow: 0 0 40px 40px orange inset;
+}
+
+.dropbtn:hover {
+    color: black;
+    box-shadow: 0 0 40px 40px orange inset;
+}
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2c3e50;
+    z-index: 1;
+  
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    background-color: violet;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: transparent;}
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }

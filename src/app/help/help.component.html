@@ -1,0 +1,72 @@
+<body>
+
+    <div *ngIf="this.startTF">
+        <h2>Hello, how may I help you today?</h2>
+        <button (click)="isLost()">I am lost</button>
+        <br>
+        <button (click)="needHelp()">I need help taking a test</button>
+        <br>
+        <button (click)="info()">I want to know more about this project</button>
+    </div>
+
+    <div *ngIf="this.needHelpTF">
+        <p>If you are having issues completing a test or are confused as to how to take a test then follow these instructions. When 
+            landing on the tests tab you must first pick a test of the event that you wish to complete. Once you have chosen a test 
+            you will take the first question will be a mix and match question. Match the term with it's corresponding definition in 
+            order to get a point. Once completed you will move on to the rest of the 4 questions remaining on the test. These will be 
+            completely randomized and in a random format ranging from multiple choice, fill in the blank, drop down, and true or false. 
+        </p>
+        <p>To answer a multiple choice question you must choose an answer from the ones provided. You are allowed to change your answer
+            while you are still in the same question. You will not be able to change your answer once you have clicked the next button. 
+        </p>
+        <p>Fill in the blank will prompt you to write the answer to the question in the text box below. You may change your answer while 
+            you are still in this question. 
+        </p>
+        <p>To answer a drop down question you will navigate to the drop down menu provided in your question and then select an answer from 
+            the answers provided. 
+        </p>
+        <p>Was this useful?</p>
+        <button (click)="yes()">Yes</button>
+        <button (click)="no()">No</button>
+        <div *ngIf="this.yesTF">
+            <p>We're glad this helped.</p>
+        </div>
+        <div *ngIf="this.noTF">
+            <p>Thank you for letting us know.</p>
+        </div>
+        <button (click)="back()">back</button>
+    </div>
+
+    <div *ngIf="this.isLostTF">
+        <p>if you are lost use the navigation menu above to navigate into different sections of this website. If
+            you want to take a test navigate into the tests tab and select a test there. If you wish learn more about
+            Eastwood FBLA navigate into the about tab.
+        </p>
+        <p>Was this useful?</p>
+        <button (click)="yes()">Yes</button>
+        <button (click)="no()">No</button>
+        <div *ngIf="this.yesTF">
+            <p>We're glad this helped.</p>
+        </div>
+        <div *ngIf="this.noTF">
+            <p>Thank you for letting us know.</p>
+        </div>
+        <button (click)="back()">back</button>
+    </div>
+
+    <div *ngIf="this.infoTF">
+        <p>This website was created by Fernando Munoz for the 2021 Coding and Programming event. This website was made with angular 
+            and all the questions from the tests are stored in google firebase. 
+        </p>
+        <p>Was this useful?</p>
+        <button (click)="yes()">Yes</button>
+        <button (click)="no()">No</button>
+        <div *ngIf="this.yesTF">
+            <p>We're glad this helped</p>
+        </div>
+        <div *ngIf="this.noTF">
+            <p>Thank you for letting us know.</p>
+        </div>
+        <button (click)="back()">back</button>
+    </div>
+</body>

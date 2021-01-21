@@ -7,7 +7,11 @@
         <button class="dropbtn" (click)="getTests('Journalism')">Journalism</button>
         <button class="dropbtn" (click)="getTests('CyberSec')">Cyber Security</button>
         <button class="dropbtn" (click)="getTests('Economics')">Economics</button>
-        <button class="dropbtn" (click)="getTests('OrgLeadership')">Organizational Leadership</button>      
+        <button class="dropbtn" (click)="getTests('OrgLeadership')">Organizational Leadership</button>  
+        <div class="instructions">
+            <p>Five Question Quizes:</p>
+        </div>    
+        <button class="dropbtn" (click)="getTests('CyberSecQuiz')">Cyber Security Quiz</button>  
     </div>
 
     <div *ngIf="(!this.questionsService.mixAndMatchTF) && !this.questionsService.dropDownTestsTF">
@@ -62,7 +66,7 @@
         </div>
 
         <div *ngIf="this.questionsService.currentQuestions">
-            <div *ngIf="this.questionsService.currentQuestions.length==11">
+            <div *ngIf="this.questionsService.currentQuestions.length==0">
                 <div class="results">
                     <p>Total Right Answers: {{this.questionsService.rightAnswers}}</p>
                     <p>Total Wrong Answers: {{this.questionsService.wrongAnswers}}</p>

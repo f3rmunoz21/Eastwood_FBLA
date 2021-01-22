@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Purpose 
 
-This program was designed to create the results of a five quesiton quiz, display at least four different types of questions, and have data stored in a nonSQL data base. Questions come from FBLA objective tests in order for students to use this program to study for their objective tests. 
+This program was designed to display the results of an FBLA related five question quiz, display at least four different types of questions, and have data stored in a nonSQL data base. Questions come from FBLA objective tests in order for students to use this program to study for their objective tests. 
 
 ## Database questions
 

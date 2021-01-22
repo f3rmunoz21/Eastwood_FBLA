@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
 
+# Database questions
+
+questions were stored in to firebase using the question-maker component code available at src/app/question-maker
+
+# Navigation 
+
+code for navigation menu is available at src/app-component and code for the help Q&A interactive menu component is available at src/app/help
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

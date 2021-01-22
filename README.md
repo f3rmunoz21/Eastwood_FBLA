@@ -2,13 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
 
-# Database questions
+## Purpose 
+
+This program was designed to create the results of a five quesiton quiz, display at least four different types of questions, and have data stored in a nonsql data base. Questions come from FBLA objective tests in order for students to use this program to study. 
+
+## Database questions
 
 Questions were stored in to firebase using the question-maker component code available at src/app/question-maker
 
-# Navigation 
+## Navigation 
 
 Code for navigation menu is available at src/app-component and code for the help Q&A interactive menu component is available at src/app/help
+
+## Tests 
+
+Code for tests and quizzes is available at src/app/questions
 
 ## Development server
 

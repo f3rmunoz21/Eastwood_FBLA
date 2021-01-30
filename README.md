@@ -4,6 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Firebase
 https://console.firebase.google.com/u/1/
+credentials to access firebase 
+username: f3rmunoz21
+password: Vexrobo21
 
 ## Purpose 
 

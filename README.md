@@ -3,7 +3,8 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
 
 # Firebase
-https://console.firebase.google.com/project/fbla-233c8/overview
+Below is a link to images to the questions and answers stored in google firebase.
+https://drive.google.com/drive/folders/1kZqyOT7n3tE6j1zPM56GdbyPLiYrk9wg?usp=sharing
 
 ## Purpose 
 

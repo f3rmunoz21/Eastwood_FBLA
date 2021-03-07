@@ -107,6 +107,7 @@
                 <button class="standard" value="Print this page" onClick="window.print()">Print Results</button>
                 <br>
                 <button class="standard" (click)="Restart()">Restart?</button>
+
                 <div *ngFor="let q of this.questionsService.answeredQuestions">
                     <div *ngIf="q.isCorrectTF == true">
                         <div>
@@ -120,6 +121,7 @@
                         </div>
                         <hr>
                     </div>
+
                     <div *ngIf="q.isCorrectTF == false">
                         <div>
                             <p style="float: left;"><img src="http://www.pngmart.com/files/3/Red-Cross-PNG-Photo.png"
@@ -173,7 +175,10 @@
                 <button class="mixandmatch" (click)="setCurrentQuestion(q, i)">{{q.question}}</button>
             </div>
         </div>
+        <p></p>
+        <hr>
         <div *ngFor="let a of this.questionsService.currentMixAndMatchAnswers; let i = index">
+            <p></p>
             <div>
                 <button class="mixandmatch" (click)="setCurrentAnswer(a, i)">{{a}}</button>
             </div>

@@ -8,21 +8,22 @@
     <h2>Question</h2>
     <input [(ngModel)]="this.currentQuestion.question" />
     <hr>
-    <!-- <button>Save Question</button> -->
 
     <h2>Answers</h2>
 
     <div *ngFor="let a of this.currentQuestion.answers; let i = index">
         <input [(ngModel)]="this.currentQuestion.answers[i+1]" />
     </div>
-
+    <!-- Answers array is set up here -->
     <hr>
     <button (click)="addNewAnswer()">Add Answer</button>
-    
+    <!-- Add new answer runs the addNewAnswer method -->
+
     <h2>Correct Answer</h2>
     <input [(ngModel)]="this.currentQuestion.correctAnswer" />
     <hr>
-    <!-- <button>Save Correct Answer</button> -->
+
     <button (click)="saveQuestion()">Save Question</button>
+    <!-- Save question button runs the saveQuestion method -->
 
 </body>

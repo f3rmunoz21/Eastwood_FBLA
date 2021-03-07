@@ -14,10 +14,7 @@ import { QuestionsService } from '../services/questions.service';
 })
 
 export class QuestionMakerComponent implements OnInit {
-  //currentQuestions: Question[];
-  //newQuestion:Question;
-
-
+  
   currentQuestion: Question = new Question;
 
   currentType: string;
@@ -25,8 +22,7 @@ export class QuestionMakerComponent implements OnInit {
   constructor(public questionMakerService: QuestionMakerService, public questionService: QuestionsService) {
 
     this.currentQuestion.answers = [''];
-    // THis is what your function should do then call the printQuestion function.
-    //After printing, just imagine that it has been saved and just set the new question = to new Question(); and reset the process again. 
+     
   }
 
   ngOnInit(): void {
@@ -35,6 +31,7 @@ export class QuestionMakerComponent implements OnInit {
 
   addNewAnswer() {
     this.currentQuestion.answers.push('');
+    // Pushes the answer written into the answers array that was created
   }
 
   saveQuestion() {
@@ -45,7 +42,7 @@ export class QuestionMakerComponent implements OnInit {
     this.questionService.saveQuestion(this.currentQuestion, this.currentType);
     this.currentQuestion = new Question();
     this.currentQuestion.answers = [''];
-
+    // resets in order to write a new question 
   }
 }
 

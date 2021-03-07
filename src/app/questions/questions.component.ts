@@ -17,7 +17,9 @@ export class QuestionsComponent implements OnInit {
   typedAnswer: string; 
   currentAnswer: string;
   indexAnswer: number;
-  
+  fillInTheBlankIsAnsweredTF: boolean; 
+  blankAnswer: string; 
+
   constructor(public questionsService: QuestionsService) {
     // this.getQuestions(this.type);
     console.log(this.questionsService.fillInTheBlankTF);
@@ -41,7 +43,13 @@ export class QuestionsComponent implements OnInit {
   }
 
   submit() { 
-    this.questionsService.GetResult(this.typedAnswer);
+    if (this.typedAnswer === this.blankAnswer) { 
+      console.log("No answer was recorded");
+      this.fillInTheBlankIsAnsweredTF = false;
+    } else { 
+      this.fillInTheBlankIsAnsweredTF = true;
+      this.questionsService.GetResult(this.typedAnswer);
+    }
   }
 
   setCurrentQuestion(question: Question, index: number) {
@@ -71,6 +79,9 @@ export class QuestionsComponent implements OnInit {
     this.type = type;
     this.questionsService.GetQuestions(this.type);
     this.questionsService.GetMixAndMatch(this.type);
+    // The question type was set by the buttons in questions.components.html when the user selects the 
+    // type of test/quiz they wish to take
     this.questionsService.dropDownTestsTF = false;
+    // setting the dropDownTestsTF to false will deactivate the selection menu for the tests available 
   }
 }

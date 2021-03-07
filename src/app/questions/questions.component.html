@@ -1,6 +1,8 @@
 <body>
 
     <div *ngIf="this.questionsService.dropDownTestsTF" class="dropdown">
+        <!-- If the dropDownTestsTF boolean is true then the dropdown menu for the available tests will appear -->
+        <!-- If the dropDownTestsTF boolean is false then the dropdwon menu will not be visable to the user -->
         <div class="instructions">
             <p>Choose a test from the selection below:</p>
         </div>
@@ -8,6 +10,8 @@
         <button class="dropbtn" (click)="getTests('CyberSec')">Cyber Security</button>
         <button class="dropbtn" (click)="getTests('Economics')">Economics</button>
         <button class="dropbtn" (click)="getTests('OrgLeadership')">Organizational Leadership</button>  
+        <!-- Each of the buttons will run the getTests method -->
+        <!-- Each of the buttons also contains the type of test that is selected ex: CyberSec -->
         <div class="instructions">
             <p>Five Question Quizes:</p>
         </div>    
@@ -15,33 +19,57 @@
     </div>
 
     <div *ngIf="(!this.questionsService.mixAndMatchTF) && !this.questionsService.dropDownTestsTF">
+        <!-- If the mixAndMatchTF is false and the dropDownTestsTF is also false then the quiz/test will begin as 
+            the mix and match portion of the quiz/test has already been completed-->
+            <!-- The rest of the quiz/test will not be available until the mix and match portion is completed  -->
 
         <div *ngIf="this.questionsService.currentQuestion">
+            <!-- If the CurrentQuestion array is still available/has a value then the quiz/test will continue to 
+             appear-->
+             <!-- If the CurrentQuestion array no longer has a value then the quiz/test will mov -->
 
             <div *ngIf="this.questionsService.multipleTF">
+                <!-- If the multipleTF boolean is true then the format for the multiple choice questions will appear -->
                 <div class="instructions">
                     <p>Select the correct answer to the following question:</p>
                 </div>
                 <div class="questions">
                     <p>{{this.questionsService.currentQuestion.question}}</p>
+                    <!-- This paragraph text will display the question recieved from the database -->
                 </div>
                 <div *ngFor="let answer of this.questionsService.currentQuestion.answers ">
+                    <!-- The for loop will be the same length as the questions available in the database -->
                     <button class="answer" (click)="this.questionsService.GetResult(answer)">{{answer}}</button>
+                    <!-- The for loop will display the answers corresponding to the questions in the form of buttons to 
+                    allow the user to choose an answer -->
+                    <!-- When the button is pressed the GetResult method runs and passes in the answer chosen as its parameter 
+                    in the form of a string-->
                 </div>
             </div>
 
             <div *ngIf="this.questionsService.fillInTheBlankTF">
+                <!-- If the fillInTheBlankTF boolean is true then the question will be displayed in the 
+                fill in the blank format -->
                 <div class="instructions">
                     <p>answer the question using the textbox below</p>
                 </div>
                 <div class="questions">
                     <p>{{this.questionsService.currentQuestion.question}}</p>
                 </div>
-                <input class="inputbox" [(ngModel)]="this.typedAnswer" />
+                <input class="inputbox" [(ngModel)]="this.typedAnswer"/>
                 <button class="standard" (click)="submit()">Submit Answer</button>
+                <!-- Displays a textbox the user can interact with -->
+                <div *ngIf="!this.fillInTheBlankIsAnsweredTF">
+                    <div class="instructions">
+                        <p>You must type in an answer in order to continue</p>
+                    </div>
+                    <!-- The next button will not appear if no answer has been submited -->
+                </div>
             </div>
 
             <div *ngIf="this.questionsService.dropDownTF">
+                <!-- If the dropDownTF boolean is true then the question will appear in the drop down menu 
+                format -->
                 <div class="dropdown">
                     <div class="instructions">
                         <p>Answer the question in the drop down below.</p>
@@ -60,13 +88,17 @@
             </div>
 
             <div *ngIf="this.questionsService.currentQuestion.isAnsweredTF">
+                <!-- The next button will only appear if the question is answered--> 
                 <button class="standard" (click)="this.questionsService.NextQuestion()">Next</button>
+                <!-- Pressing the Next button will run the NextQuestion method -->
             </div>
 
         </div>
 
         <div *ngIf="this.questionsService.currentQuestions">
             <div *ngIf="this.questionsService.currentQuestions.length==0">
+                <!-- If the currentQuestions array is equal to zero, meaning all the questions have been answered
+                then the results will be displayed -->
                 <div class="results">
                     <p>Total Right Answers: {{this.questionsService.rightAnswers}}</p>
                     <p>Total Wrong Answers: {{this.questionsService.wrongAnswers}}</p>
@@ -134,12 +166,13 @@
     </div>
 
     <div *ngIf="this.questionsService.mixAndMatch" class="grid-container">
+        <!-- If the mixAndMatch boolean is true then the mix and match questions will be displayed in their 
+        mix and match format -->
         <div *ngFor="let q of this.questionsService.currentMixAndMatch.questions; let i = index">
             <div *ngIf="!q.isAnsweredTF">
                 <button class="mixandmatch" (click)="setCurrentQuestion(q, i)">{{q.question}}</button>
             </div>
         </div>
-
         <div *ngFor="let a of this.questionsService.currentMixAndMatchAnswers; let i = index">
             <div>
                 <button class="mixandmatch" (click)="setCurrentAnswer(a, i)">{{a}}</button>

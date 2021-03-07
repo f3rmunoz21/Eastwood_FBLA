@@ -1,19 +1,57 @@
-*{
+html {
+  scroll-behavior: smooth;
+}
+body{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family:Poppins;
 }
-/* custom scroll bar */
-::-webkit-scrollbar {
-    width: 10px;
+h1{
+  font-size: 50px;
+  font-family:Audiowide;
 }
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
+p{
+  font-size: 24px;
+  line-height: 50px;
 }
-::-webkit-scrollbar-thumb {
-    background: #888;
+.navbar{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #b9c0d1;
+  width: 100%;
+  height: 75px;
+  z-index: 1;
 }
-::selection{
-  background: rgb(0,123,255,0.3);
+.nav{
+  display: flex;
+  justify-content: right;
+  list-style: none;
+  margin-right: 15%;
 }
+.logo {
+  flex: 1 1 auto;
+  margin-left: 10%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 35px;
+}
+img{
+  width: 20%;
+}
+a{
+  margin: 15px;
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+a:hover{
+  color: #000;
+}
+
+

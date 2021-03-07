@@ -1,9 +1,9 @@
 body {
-    padding-top: 30px;
+    padding-top: 100px;
     padding-right: 80px;
     padding-bottom: 0px;
     padding-left: 80px;
-    background-color: hsl(210, 29%, 24%);
+    background-color: rgb(209, 209, 209);
     height: 300vh;
 }
 
@@ -11,9 +11,9 @@ body {
     box-sizing: border-box;
     appearance: none;
     background-color: transparent;
-    border: 2px solid rgb(60, 255, 0);
+    border: 2px solid rgb(0, 16, 158);
     border-radius: 0.6em;
-    color: rgb(60, 255, 0);
+    color: rgb(0, 16, 158);
     cursor: pointer;
     display: flex;
     align-self: center;
@@ -32,21 +32,21 @@ body {
 
 .answer:focus { 
     color: black;
-    box-shadow: 0 0 40px 40px rgb(60, 255, 0) inset;
+    box-shadow: 0 0 40px 40px rgb(0, 16, 158) inset;
 }
 
 .answer:hover {
     color: black;
-    box-shadow: 0 0 40px 40px rgb(60, 255, 0) inset;
+    box-shadow: 0 0 40px 40px rgb(0, 16, 158) inset;
 }
 
 .mixandmatch {
     box-sizing: border-box;
     appearance: none;
     background-color: transparent;
-    border: 2px solid yellow;
+    border: 2px solid rgb(0, 16, 158);
     border-radius: 0.6em;
-    color: yellow;
+    color: rgb(0, 16, 158);
     cursor: pointer;
     display: flex;
     align-self: center;
@@ -64,13 +64,13 @@ body {
 }
 
 .mixandmatch:focus { 
-    color: black;
-    box-shadow: 0 0 40px 40px yellow inset;
+    color: whitesmoke;
+    box-shadow: 0 0 40px 40px rgb(0, 16, 158) inset;
 }
 
 .mixandmatch:hover {
-    color: black;
-    box-shadow: 0 0 40px 40px yellow inset;
+    color: whitesmoke;
+    box-shadow: 0 0 40px 40px rgb(0, 16, 158) inset;
 }
   
 .print {
@@ -84,9 +84,9 @@ body {
     box-sizing: border-box;
     appearance: none;
     background-color: transparent;
-    border: 2px solid rgb(0, 225, 255);
+    border: 2px solid rgb(0, 16, 158);
     border-radius: 0.6em;
-    color:  rgb(0, 225, 255);
+    color:  rgb(0, 16, 158);
     cursor: pointer;
     display: flex;
     align-self: center;
@@ -104,22 +104,22 @@ body {
 }
 
 .standard:hover {
-    color: black;
-    box-shadow: 0 0 40px 40px  rgb(0, 225, 255) inset;
+    color: whitesmoke;
+    box-shadow: 0 0 40px 40px  rgb(0, 16, 158) inset;
 }
 
 .standard:focus { 
-    color: black;
-    box-shadow: 0 0 40px 40px  rgb(0, 225, 255) inset;
+    color: whitesmoke;
+    box-shadow: 0 0 40px 40px  rgb(0, 16, 158) inset;
 }
 
 .submit { 
     box-sizing: border-box;
     appearance: none;
     background-color: transparent;
-    border: 2px solid rgb(0, 225, 255);
+    border: 2px solid rgb(0, 16, 158);
     border-radius: 0.6em;
-    color:  rgb(0, 225, 255);
+    color:  rgb(0, 16, 158);
     cursor: pointer;
     display: flex;
     align-self: center;
@@ -143,19 +143,19 @@ body {
 .questions { 
     font-family: 'Montserrat', sans-serif;
     font-size: x-large;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .instructions { 
     font-family: 'Montserrat', sans-serif;
     font-size: medium;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .results { 
     font-family: 'Montserrat', sans-serif;
     font-size: x-large;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .checkmark {
@@ -164,7 +164,7 @@ body {
   
 .resultquestion {
     font-family: 'Montserrat', sans-serif;
-    color:white;
+    color:rgb(0, 0, 0);
     font-size: 20px;
     padding-left: 20px;
 }
@@ -173,9 +173,9 @@ body {
     box-sizing: border-box;
     appearance: none;
     background-color: transparent;
-    border: 2px solid orange;
+    border: 2px solid rgb(0, 16, 158);
     border-radius: 0.6em;
-    color:  orange;
+    color:  rgb(0, 16, 158);
     cursor: pointer;
     display: flex;
     align-self: center;
@@ -193,13 +193,13 @@ body {
   }
 
   .dropbtn:focus { 
-    color: black;
-    box-shadow: 0 0 40px 40px orange inset;
+    color: whitesmoke;
+    box-shadow: 0 0 40px 40px rgb(0, 16, 158) inset;
 }
 
 .dropbtn:hover {
-    color: black;
-    box-shadow: 0 0 40px 40px orange inset;
+    color: whitesmoke;
+    box-shadow: 0 0 40px 40px rgb(0, 16, 158) inset;
 }
   
   /* The container <div> - needed to position the dropdown content */
@@ -212,7 +212,7 @@ body {
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #2c3e50;
+    background-color: #8295a8;
     z-index: 1;
   
   }

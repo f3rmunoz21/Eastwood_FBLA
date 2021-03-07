@@ -131,15 +131,17 @@ export class QuestionsService {
     // typeNumber is then compared to QuestionTypes in quesitno-types-enums.ts
     if (typeNumber == this.questionTypes.MultipleChoice) {
       this.multipleTF = true; 
+      console.log(typeNumber + " :Multiple Choice type Question");
     } else if (typeNumber == this.questionTypes.FillInTheBlank) {
       this.fillInTheBlankTF = true; 
-    } 
-    else if (typeNumber == this.questionTypes.DropDown) { 
+      console.log(typeNumber + " :Fill in The Blank type Question");
+    } else if (typeNumber == this.questionTypes.DropDown) { 
       this.dropDownTF = true;
+      console.log(typeNumber + " :Drop Down Menu type Question");
     }
     // If typeNumber is equal to one of the three question types, it will turn that boolean true 
     // console.log(this.dropDownTF);
-    console.log(typeNumber);
+    // console.log(typeNumber);
   }
 
   GetResult(answer: string) {

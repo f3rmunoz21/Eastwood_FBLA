@@ -9,7 +9,7 @@ body{
 h1{
   font-size: 50px;
   font-family:Audiowide;
-  
+
 }
 p{
   font-size: 24px;
@@ -22,7 +22,7 @@ p{
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: #b9c0d1;
+  background-color: grey;
   width: 100%;
   height: 75px;
   z-index: 1;

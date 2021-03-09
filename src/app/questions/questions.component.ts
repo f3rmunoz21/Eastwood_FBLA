@@ -43,12 +43,14 @@ export class QuestionsComponent implements OnInit {
   }
 
   submit() { 
-    if (this.typedAnswer === this.blankAnswer) { 
-      console.log("No answer was recorded");
-      this.fillInTheBlankIsAnsweredTF = false;
-    } else { 
+    if (this.typedAnswer) { 
       this.fillInTheBlankIsAnsweredTF = true;
       this.questionsService.GetResult(this.typedAnswer);
+      this.questionsService.currentQuestion.isAnsweredTF = true;
+    } else { 
+      console.log("No answer was recorded");
+      this.fillInTheBlankIsAnsweredTF = false;
+      this.questionsService.currentQuestion.isAnsweredTF = false;
     }
   }
 
@@ -83,5 +85,9 @@ export class QuestionsComponent implements OnInit {
     // type of test/quiz they wish to take
     this.questionsService.dropDownTestsTF = false;
     // setting the dropDownTestsTF to false will deactivate the selection menu for the tests available 
+  }
+
+  quit() { 
+    this.questionsService.dropDownTestsTF = true;
   }
 }

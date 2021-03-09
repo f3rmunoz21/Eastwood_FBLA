@@ -89,13 +89,15 @@ export class QuestionsService {
     const randomIndex = Math.floor(Math.random() * (this.mixAndMatch.length - .5));
     this.currentIndex = randomIndex;
     return this.mixAndMatch[this.currentIndex];
+    
   }
 
   setCurrentMixAndMatchAnswers() { 
     this.currentMixAndMatch.questions.forEach(question => {
-      console.log(question.correctAnswer); 
+      // console.log(question.correctAnswer); 
       this.currentMixAndMatchAnswers.push(question.correctAnswer);
     });
+    
   }
 
   mixAndMatchQuestionWasAnswered(index: number) { 
@@ -131,29 +133,22 @@ export class QuestionsService {
     // typeNumber is then compared to QuestionTypes in quesitno-types-enums.ts
     if (typeNumber == this.questionTypes.MultipleChoice) {
       this.multipleTF = true; 
-      console.log(typeNumber + " :Multiple Choice type Question");
+      console.log(typeNumber + ":Multiple Choice type Question");
     } else if (typeNumber == this.questionTypes.FillInTheBlank) {
       this.fillInTheBlankTF = true; 
-      console.log(typeNumber + " :Fill in The Blank type Question");
+      console.log(typeNumber + ":Fill in The Blank type Question");
     } else if (typeNumber == this.questionTypes.DropDown) { 
       this.dropDownTF = true;
-      console.log(typeNumber + " :Drop Down Menu type Question");
+      console.log(typeNumber + ":Drop Down Menu type Question");
     }
-    // If typeNumber is equal to one of the three question types, it will turn that boolean true 
-    // console.log(this.dropDownTF);
-    // console.log(typeNumber);
+    
   }
 
   GetResult(answer: string) {
     if (answer === this.currentQuestion.correctAnswer) {
-      this.rightAnswers++;
-      this.points++;
       this.currentQuestion.isCorrectTF = true;
       // The answer selected is compared to the correctAnswer in the database 
-      // If the answer selected matches the correctAnswer then 1 one will be added to the
-      // rightAnswers integer and the points integer
     } else {
-      this.wrongAnswers++;
       this.currentQuestion.isCorrectTF = false;
       // If the answer selected does not match the wrongAnswers will have 1 added to it 
       // rightAnswers and wrongAnswers are counters used for the resutls
@@ -164,12 +159,12 @@ export class QuestionsService {
 
   getResultMixAndMatch(question: Question, answer: string, questionIndex: number) {
     if (answer === question.correctAnswer) {
-      console.log('You are correct! You gained a point.'); // maybe questions have a difficulty rating or points given
-      this.rightAnswers++;
-      this.points++;
+      console.log('You are correct! You gained a point.'); 
+      this.rightAnswers+.25;
+      this.points+.25;
       this.mixAndMatch[this.currentIndex].questions[questionIndex].isCorrectTF = true;
     } else {
-      this.wrongAnswers++;
+      this.wrongAnswers+.25;
       this.mixAndMatch[this.currentIndex].questions[questionIndex].isCorrectTF = false;
     }
     this.mixAndMatch[this.currentIndex].questions[questionIndex].isAnsweredTF = true;
@@ -177,6 +172,12 @@ export class QuestionsService {
   }
 
   NextQuestion() {
+    if(this.currentQuestion.isCorrectTF) {
+      this.rightAnswers++;
+      this.points++;
+    } else {
+      this.wrongAnswers++;
+    }
     this.currentQuestions.splice(this.currentIndex, 1);
     this.answeredQuestions.push(this.currentQuestion);
     // The pushing and slicing will shorten the array of the questions available and tracks to progress of the quiz/test
@@ -184,6 +185,7 @@ export class QuestionsService {
     // the NextQuestion method then runs the SetCurrentQUestion Method to display another question
     this.setQuestionType(); 
     // Lastly the setQuestionType method is run to set the format the question will be displayed as 
+    console.log(this.mixAndMatchTF);
   }
 
   saveQuestion(question: Question, questionType: string) {

@@ -1,10 +1,10 @@
 body {
-    padding-top: 100px;
+    padding-top: 150px;
     padding-right: 80px;
     padding-bottom: 0px;
     padding-left: 80px;
     background-color: rgb(209, 209, 209);
-    height: 300vh;
+    height: 100vh;
 }
 
 .answer {
@@ -113,13 +113,13 @@ body {
     box-shadow: 0 0 40px 40px  rgb(0, 16, 158) inset;
 }
 
-.submit { 
+.quit { 
     box-sizing: border-box;
     appearance: none;
     background-color: transparent;
-    border: 2px solid rgb(0, 16, 158);
+    border: 2px solid rgb(158, 0, 0);
     border-radius: 0.6em;
-    color:  rgb(0, 16, 158);
+    color:  rgb(158, 0, 0);
     cursor: pointer;
     display: flex;
     align-self: center;
@@ -135,6 +135,85 @@ body {
     font-weight: 700;
     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
+
+.quit:hover {
+    color: whitesmoke;
+    box-shadow: 0 0 40px 40px  rgb(158, 0, 0) inset;
+}
+
+.quit:focus { 
+    color: whitesmoke;
+    box-shadow: 0 0 40px 40px  rgb(158, 0, 0) inset;
+}
+
+.submit { 
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid rgb(37, 158, 0);
+    border-radius: 0.6em;
+    color:  rgb(37, 158, 0);
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.submit:hover {
+    color: whitesmoke;
+    box-shadow: 0 0 40px 40px  rgb(37, 158, 0)inset;
+}
+
+.submit:focus { 
+    color: whitesmoke;
+    box-shadow: 0 0 40px 40px  rgb(37, 158, 0) inset;
+}
+
+.next { 
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid rgb(37, 158, 0);
+    border-radius: 0.6em;
+    color:  rgb(37, 158, 0);
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    position: relative;
+    left: 80%;
+}
+
+.next:hover {
+    color: whitesmoke;
+    box-shadow: 0 0 40px 40px  rgb(37, 158, 0)inset;
+}
+
+.next:focus { 
+    color: whitesmoke;
+    box-shadow: 0 0 40px 40px  rgb(37, 158, 0) inset;
+}
+
 
 .inputbox { 
     margin-left: 20px;

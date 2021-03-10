@@ -61,7 +61,7 @@
                 <button class="submit" (click)="submit()">Submit Answer</button>
                 <!-- When the user submits their answer the sumbit method will be run. -->
                 <!-- Displays a textbox the user can interact with -->
-                
+
                 <div *ngIf="!this.fillInTheBlankIsAnsweredTF">
                     <div class="instructions">
                         <p>You must type in an answer in order to continue</p>
@@ -238,9 +238,9 @@
         
     </div>
 
-    <div *ngIf="!this.questionsService.dropDownTestsTF">
+    <!-- <div *ngIf="!this.questionsService.dropDownTestsTF">
         <button class="quit" onClick="history.go(0)">Exit</button>
-    </div>
+    </div> -->
     <!-- The quit button refreshes the page by using history.go(0) and allows the user to get out of the current test/quiz they are taking. -->
     <!-- Refreshing the page resets the values for all arrays, objects and numbers that are being used and allows the user to choose a different 
     test/quiz -->

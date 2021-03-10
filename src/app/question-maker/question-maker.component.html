@@ -4,6 +4,9 @@
 
     <h2>Type</h2>
     <input [(ngModel)]="this.currentType" />
+    <!-- The user input will set the Type  -->
+    <!-- The Type will be used to create a new type of Questions or if the user wants to add 
+    to an existing type of Questions the user will simply type that type in the field. -->
     <hr>
     <h2>Question</h2>
     <input [(ngModel)]="this.currentQuestion.question" />
@@ -22,6 +25,7 @@
     <h2>Correct Answer</h2>
     <input [(ngModel)]="this.currentQuestion.correctAnswer" />
     <hr>
+    <!-- The user needs to specify which of the answers given is the correct answer. -->
 
     <button (click)="saveQuestion()">Save Question</button>
     <!-- Save question button runs the saveQuestion method -->

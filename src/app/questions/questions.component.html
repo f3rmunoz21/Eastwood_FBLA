@@ -48,22 +48,26 @@
             </div>
 
             <div *ngIf="this.questionsService.fillInTheBlankTF">
-                <!-- If the fillInTheBlankTF boolean is true then the question will be displayed in the 
-                fill in the blank format -->
+            <!-- If the fillInTheBlankTF boolean is true then the question will be displayed in the 
+            fill in the blank format -->
                 <div class="instructions">
                     <p>answer the question using the textbox below</p>
                 </div>
                 <div class="questions">
                     <p>{{this.questionsService.currentQuestion.question}}</p>
                 </div>
-                <input class="inputbox" [(ngModel)]="this.typedAnswer" />
+
+                <input class="inputbox" [(ngModel)]="this.typedAnswer"/>
                 <button class="submit" (click)="submit()">Submit Answer</button>
+                <!-- When the user submits their answer the sumbit method will be run. -->
                 <!-- Displays a textbox the user can interact with -->
+                
                 <div *ngIf="!this.fillInTheBlankIsAnsweredTF">
                     <div class="instructions">
                         <p>You must type in an answer in order to continue</p>
                     </div>
-                    <!-- The next button will not appear if no answer has been submited -->
+                <!-- If the question has not been answered or the user has not inputed an answer, the user will be prompted to 
+                type in an answer in order to continue. -->
                 </div>
             </div>
 
@@ -78,6 +82,8 @@
                         <p>{{this.questionsService.currentQuestion.question}}</p>
                     </div>
                     <button class="dropbtn">Choose answer here</button>
+                    <!-- The Drop down button will display a dropdown menu when 
+                        hovered over, where the user can then choose an answer from   -->
                     <div class="dropdown-content">
                         <div *ngFor="let answer of this.questionsService.currentQuestion.answers ">
                             <button class="dropbtn"
@@ -93,6 +99,8 @@
                 <!-- Pressing the Next button will run the NextQuestion method -->
             </div>
 
+         
+    
         </div>
 
         
@@ -107,17 +115,21 @@
                 <div class="results">
                     <p>Total Right Answers: {{this.questionsService.rightAnswers}}</p>
                     <p>Total Wrong Answers: {{this.questionsService.wrongAnswers}}</p>
-                    <p>Total points: {{this.questionsService.points}}</p>
+                    <p>Final Score: {{this.questionsService.percent}}%</p>
                 </div>
 
                 <button class="standard" value="Print this page" onClick="window.print()">Print Results</button>
+                <!-- Print button will generate a prinatble format of the current page -->
                 <br>
                 <button class="standard" (click)="Restart()">Restart?</button>
                 <!-- The restart button will run the restart method which will set all booleans to false 
-                in order to retake the quiz/test -->
+                in order to retake the quiz/test and arrays equal to zero -->
 
                 <div *ngFor="let q of this.questionsService.answeredQuestions">
-
+                    <!-- The for loop will apply to the questions that the user answered, the q will be the index and the 
+                    length of the answeredQuestions array will be the amount of times the for loop will be run -->
+                    <!-- Using the answeredQuestions will break the For loop once all the questions answered have been 
+                    displayed -->
                     <div *ngIf="q.isCorrectTF == true">
                         <!-- If the user got a question correct then the question will be displayed 
                         with the correct answer format -->
@@ -127,7 +139,9 @@
                             <!-- The correct answers will be displayed with a green checkmark follwed by the question and the answer chosen-->
                             <div class="resultquestion">
                                 <p>{{q.question}}</p>
+                                <!-- q.question displays the question and the value of the index -->
                                 <p>Correct Answer: {{q.correctAnswer}}</p>
+                                <!-- q.correctAnswer displays the correct answer for the question at the index value -->
                             </div>
                         </div>
                         <hr>
@@ -143,7 +157,6 @@
                             <div class="resultquestion">
                                 <p>{{q.question}}</p>
                                 <p>Correct Answer: {{q.correctAnswer}}</p>
-                                <p>{{answer}}</p>
                             </div>
                         </div>
                         <hr>
@@ -186,10 +199,10 @@
     
 
     <div *ngIf="(this.questionsService.mixAndMatch) && this.questionsService.mixAndMatchTF" class="grid-container">
-        <!-- If the mixAndMatch boolean is true then the mix and match questions will be displayed in their 
-        mix and match format -->
+        <!-- If the mixAndMatch array exists and the mixAndMatchTF boolean is true then the mix and match 
+            questions will be displayed -->
         <div class="instructions">
-            <p>Match the following terms to their corresponding definitions</p>
+            <p>Match the following terms to their corresponding definitions. Each term is worth 0.25 points.</p>
         </div>
         <br>
         <div class="instructions">
@@ -198,6 +211,8 @@
         <br>
         
         <div *ngFor="let q of this.questionsService.currentMixAndMatch.questions; let i = index">
+            <!-- q will serve as the index for the currentMixAndMatch.questions array, i will have the same value as q -->
+            <!-- i is set up as the index because it is what will be passed into the setCurrentQuestions method -->
             <div *ngIf="!q.isAnsweredTF">
                 <button class="mixandmatch" (click)="setCurrentQuestion(q, i)">{{q.question}}</button>
             </div>
@@ -209,16 +224,25 @@
         <br>
 
         <div *ngFor="let a of this.questionsService.currentMixAndMatchAnswers; let i = index">
+            <!-- a will be the index for the answers in the currentMixAndMatch answers array -->
+            <!-- a, q, and i will be passed as parameters -->
             <p></p>
-            <div>
+            <div *ngIf="!a.isAnsweredTF">
                 <button class="mixandmatch" (click)="setCurrentAnswer(a, i)">{{a}}</button>
             </div>
+            <!-- <div>
+                <button class="mixandmatch" (click)="setCurrentAnswer(a, i)">{{a}}</button>
+            </div> -->
+            
         </div>
         
     </div>
 
     <div *ngIf="!this.questionsService.dropDownTestsTF">
-        <button class="quit" (click)="this.quit()">Quit</button>
+        <button class="quit" onClick="history.go(0)">Exit</button>
     </div>
+    <!-- The quit button refreshes the page by using history.go(0) and allows the user to get out of the current test/quiz they are taking. -->
+    <!-- Refreshing the page resets the values for all arrays, objects and numbers that are being used and allows the user to choose a different 
+    test/quiz -->
 
 </body>

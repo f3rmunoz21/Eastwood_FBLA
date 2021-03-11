@@ -39,7 +39,9 @@ export class QuestionMakerComponent implements OnInit {
     this.currentQuestion.isCorrectTF = false;
     console.log('current question: ', this.currentQuestion);
     this.currentQuestion.answers.shift();
+    // Allows the user to put in more answers into the question. 
     this.questionService.saveQuestion(this.currentQuestion, this.currentType);
+    // Runs the saveQuestion method in the question service
     this.currentQuestion = new Question();
     this.currentQuestion.answers = [''];
     // resets in order to write a new question 

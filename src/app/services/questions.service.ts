@@ -25,6 +25,8 @@ export class QuestionsService {
   mixAndMatchCC: Questions[];
   currentMixAndMatchAnswers: string[] = [];
   dropDownTestsTF = true;
+  quitTF = false;
+  percent: number; 
 
   constructor(private firestore: AngularFirestore) {
     this.GetQuestions('CyberSec');
@@ -102,9 +104,14 @@ export class QuestionsService {
 
   mixAndMatchQuestionWasAnswered(index: number) { 
     this.currentMixAndMatchAnswers.splice(index, 1);
+    // splices the currentMixAndMatchAnswers at the current index to delete the question and 
+    // the answer selected
     if (this.currentMixAndMatchAnswers.length == 0) {
       this.mixAndMatchTF = false;
+      // Once the currentMixAndMatchAnswers array is equal to zero, meaning that the the user has answered 
+      // all the questions then the mixAndMatch boolean will be set to false
     }
+    
   }
 
   SetCurrentQuestion(): Question {
@@ -141,6 +148,9 @@ export class QuestionsService {
       this.dropDownTF = true;
       console.log(typeNumber + ":Drop Down Menu type Question");
     }
+    // If the type number is equal to the question number then the True or False boolean for the corresponding 
+    // type of question will be true allowing the question to be displayed in the corresponding question format set. 
+    // Console.log will report what kind of question is being presented. 
     
   }
 
@@ -159,25 +169,51 @@ export class QuestionsService {
 
   getResultMixAndMatch(question: Question, answer: string, questionIndex: number) {
     if (answer === question.correctAnswer) {
-      console.log('You are correct! You gained a point.'); 
-      this.rightAnswers+.25;
-      this.points+.25;
+      this.rightAnswers = this.rightAnswers + 0.25;
+      console.log("Mix and Match Answer is correct"); 
+      console.log("Current Right Answers:" + this.rightAnswers);
       this.mixAndMatch[this.currentIndex].questions[questionIndex].isCorrectTF = true;
+      // If the answer selected is equal to the correct answer in the database, then the user will receive points.
+      // Because the Mix and match question has 4 terms but is only one question, each term is worth 0.25 points to give the 
+      // Total question a value of one point. If the answer is correct the isCorrect boolean for the current question/term will be true
     } else {
-      this.wrongAnswers+.25;
+      this.wrongAnswers = this.wrongAnswers+0.25;
       this.mixAndMatch[this.currentIndex].questions[questionIndex].isCorrectTF = false;
+      console.log("Mix and Match Answer is incorrect");
+      console.log("Current Wrong Answers:" + this.wrongAnswers);
+      // If the answer is incorrect then 0.25 will be added to the wrongAnswers number and the isCorrect boolean for the current 
+      // question will be set to false.
     }
+    this.points= this.points+0.25;
+    console.log("Current Questions in the test/quiz:" + this.points);
     this.mixAndMatch[this.currentIndex].questions[questionIndex].isAnsweredTF = true;
+    // The points number will serve as a counter for the amount of questions that are in the quiz/test
+    // The value that a question has will always be added to the points number regardless if the question was right or wrong 
   
   }
 
-  NextQuestion() {
+  NextQuestion(index: number) {
+    // this.currentMixAndMatchAnswers.splice(index, 1);
+    // if (this.currentMixAndMatchAnswers.length == 0) {
+    //   this.mixAndMatchTF = false;
+    // }
     if(this.currentQuestion.isCorrectTF) {
       this.rightAnswers++;
-      this.points++;
+      console.log("Answer is correct"); 
+      console.log("Current Right Answers:" + this.rightAnswers);
     } else {
       this.wrongAnswers++;
+      console.log("Answer is incorrect");
+      console.log("Wrong Answers:" + this.wrongAnswers);
     }
+    this.points++;
+    this.percent = (this.rightAnswers*100);
+    this.percent = this.percent/this.points;
+    console.log("Current Score:" + this.percent);
+    // The points number keeps track of the amount of questions that have been answered. 
+    // Because the amount of right answers has been tracked, the right answers by 100 
+    // divided by the total questions answered will be the percent of questions answered correctly. 
+    // The percent updates everytime the user clicks the next button making the score update in real time. 
     this.currentQuestions.splice(this.currentIndex, 1);
     this.answeredQuestions.push(this.currentQuestion);
     // The pushing and slicing will shorten the array of the questions available and tracks to progress of the quiz/test
@@ -185,12 +221,13 @@ export class QuestionsService {
     // the NextQuestion method then runs the SetCurrentQUestion Method to display another question
     this.setQuestionType(); 
     // Lastly the setQuestionType method is run to set the format the question will be displayed as 
-    console.log(this.mixAndMatchTF);
+    console.log("mixAndMatchTF:" + this.mixAndMatchTF);
   }
 
   saveQuestion(question: Question, questionType: string) {
     const q = new Questions();
     this.currentQuestions.push({...question});
+    // Pushes writen question into the questions array
     q.questions = this.currentQuestions;
     console.log(this.currentQuestions);
     const questions = {...q};
